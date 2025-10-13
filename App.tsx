@@ -16,15 +16,24 @@ import VaultScreen from './src/screens/VaultScreen';
 // Import constants
 import {COLORS} from './src/constants/colors';
 import CustomHeader from './src/components/CustomHeader';
+import Loader from './src/components/Loader';
 
 const Tab = createBottomTabNavigator();
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   const [isFirstLaunch, setIsFirstLaunch] = useState<boolean | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     checkFirstLaunch();
+    
+    // Таймер для лоадера на 2 секунды
+    const loaderTimer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(loaderTimer);
   }, []);
 
   const checkFirstLaunch = async () => {
@@ -46,8 +55,8 @@ function App(): React.JSX.Element {
     }
   };
 
-  if (isFirstLaunch === null) {
-    return <View style={{flex: 1, backgroundColor: COLORS.background}} />;
+  if (isFirstLaunch === null || isLoading) {
+    return <Loader />;
   }
 
   if (isFirstLaunch) {
