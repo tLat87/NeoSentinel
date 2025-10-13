@@ -1,97 +1,258 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Neo Sentinel - Personal Safety Calendar & Cybersecurity Coach
 
-# Getting Started
+Neo Sentinel is a React Native application that serves as your essential personal safety calendar and cybersecurity coach. It helps you stay on top of password security by providing proactive reminders and secure password generation.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 🔥 Key Features
 
-## Step 1: Start Metro
+### 1. Proactive Password Reminders (The Sentinel)
+- Set rotation cycles (10-90 days) for each account in your personal Vault
+- Receive clear, timely alerts exactly when a password is due for an update
+- Get a quick overview of your security status right from the home dashboard
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+### 2. Built-in Secure Generation (Neo SecureGen)
+- Seamlessly integrate with iCloud Keychain to generate strong, unique passwords
+- Track the change date automatically to restart your security cycle after a successful update
+- Copy and regenerate passwords with ease
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### 3. Cybersecurity Tips (Knowledge is Power)
+- Access short, practical, and up-to-date security tips daily
+- Learn to spot phishing, strengthen 2FA, and improve your overall cyber hygiene
+- Save and share tips with others
 
-```sh
-# Using npm
-npm start
+### 4. My Vault (Secure Tracking)
+- Securely protected by Face ID / Touch ID
+- Store only the service name and login for tracking purposes
+- **Important**: Neo Sentinel DOES NOT store your actual passwords. We only track the update schedule.
 
-# OR using Yarn
-yarn start
-```
+## 🎨 Design
 
-## Step 2: Build and run your app
+The app features a modern dark theme with vibrant green accents, matching the provided design specifications:
+- Dark background (#1F1D2A) with gradient green borders (#BEFF60 to #008809)
+- Clean, minimalist interface
+- Intuitive navigation with bottom tabs
+- Smooth animations and transitions
+- Gradient border buttons with linear gradient from #BEFF60 to #008809
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## 🚀 Getting Started
 
-### Android
+### Prerequisites
 
-```sh
-# Using npm
-npm run android
+- Node.js (>= 18)
+- React Native CLI
+- Xcode (for iOS development)
+- Android Studio (for Android development)
+- CocoaPods (for iOS dependencies)
 
-# OR using Yarn
-yarn android
-```
+### Installation
 
-### iOS
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd NeoSentinel
+   ```
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+3. **Install iOS dependencies**
+   ```bash
+   cd ios && pod install && cd ..
+   ```
 
-```sh
-bundle install
-```
+4. **Run the application**
 
-Then, and every time you update your native dependencies, run:
+   For iOS:
+   ```bash
+   npm run ios
+   ```
 
-```sh
-bundle exec pod install
-```
+   For Android:
+   ```bash
+   npm run android
+   ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## 📱 App Structure
 
-```sh
-# Using npm
-npm run ios
+### Screens
 
-# OR using Yarn
-yarn ios
-```
+1. **Onboarding Screen**
+   - Welcome introduction with dots indicator
+   - 5-step onboarding process explaining app features
+   - Skip option available
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+2. **Password Reminders**
+   - Add new password reminders with custom intervals (10-90 days)
+   - View all active reminders with status indicators
+   - Mark reminders as completed
+   - Delete reminders
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+3. **Security Tips**
+   - Browse curated cybersecurity tips
+   - Save tips to favorites
+   - Share tips with others
 
-## Step 3: Modify your app
+4. **Saved Tips**
+   - View all saved security tips
+   - Remove tips from saved list
+   - Share saved tips
 
-Now that you have successfully run the app, let's make changes!
+5. **Password Generator**
+   - Generate secure passwords with iCloud Keychain integration
+   - Copy passwords to clipboard
+   - Regenerate new passwords
+   - Password strength indicator
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+6. **My Vault**
+   - Secure vault protected by biometric authentication
+   - Store service names and login information
+   - Track password update schedules
+   - Add/remove vault entries
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+### Services
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+1. **NotificationService**
+   - Simplified notification system (logs reminders to console)
+   - Tracks password reminder schedules
+   - Ready for future push notification integration
 
-## Congratulations! :tada:
+2. **BiometricService**
+   - Manages Face ID/Touch ID authentication
+   - Handles biometric key creation and validation
+   - Provides secure authentication for vault access
 
-You've successfully run and modified your React Native App. :partying_face:
+## 🔧 Configuration
 
-### Now what?
+### iOS Setup
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+1. **Enable Keychain Sharing**
+   - Add Keychain Sharing capability in Xcode
+   - Configure keychain access groups
 
-# Troubleshooting
+2. **Configure Notifications (Optional)**
+   - Currently using simplified notification system
+   - Can be extended with push notifications in the future
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+3. **Biometric Authentication**
+   - Add Face ID/Touch ID usage description in Info.plist
+   - Configure biometric authentication settings
 
-# Learn More
+### Android Setup
 
-To learn more about React Native, take a look at the following resources:
+1. **Permissions**
+   - Notification permissions are handled automatically
+   - Biometric authentication permissions are configured
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+2. **Keychain Integration**
+   - Android Keystore integration for secure storage
+
+## 🛡️ Security Features
+
+- **No Password Storage**: The app never stores actual passwords
+- **Biometric Protection**: Vault access protected by Face ID/Touch ID
+- **Local Data**: All data stored locally on device
+- **Secure Generation**: Passwords generated using secure algorithms
+- **Encrypted Storage**: Sensitive data encrypted using device keychain
+
+## 📦 Dependencies
+
+### Core Dependencies
+- `react-native`: 0.80.0
+- `react`: 19.1.0
+- `@react-navigation/native`: Navigation library
+- `@react-navigation/bottom-tabs`: Bottom tab navigation
+- `@react-native-async-storage/async-storage`: Local data storage
+
+### Security & Authentication
+- `react-native-biometrics`: Biometric authentication
+- `react-native-keychain`: Secure keychain access
+
+### UI & Utilities
+- `react-native-vector-icons`: Icon library
+- `react-native-share`: Share functionality
+- `react-native-safe-area-context`: Safe area handling
+
+## 🎯 Usage
+
+### Adding Password Reminders
+1. Navigate to the "Reminders" tab
+2. Tap the "+" button to add a new reminder
+3. Enter service name, interval (10-90 days), and optional comment
+4. Save to schedule notifications
+
+### Using Password Generator
+1. Go to the "Generator" tab
+2. Tap "Generate safe password"
+3. Copy the generated password
+4. Use "Regenerate" to create a new password
+
+### Managing Security Tips
+1. Browse tips in the "Tips" tab
+2. Save interesting tips using the heart icon
+3. View saved tips in the "Saved" tab
+4. Share tips using the share button
+
+### Accessing Your Vault
+1. Navigate to the "Vault" tab
+2. Authenticate using Face ID/Touch ID
+3. Add service entries for tracking
+4. View and manage your account list
+
+## 🔒 Privacy & Security
+
+Neo Sentinel is designed with privacy and security in mind:
+
+- **Local Storage Only**: All data remains on your device
+- **No Cloud Sync**: No data is sent to external servers
+- **Biometric Protection**: Sensitive areas protected by device biometrics
+- **Minimal Data Collection**: Only service names and login info stored
+- **No Password Storage**: Actual passwords are never stored
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **iOS Pod Install Issues**
+   ```bash
+   cd ios
+   pod deintegrate
+   pod install
+   ```
+
+2. **Android Build Issues**
+   ```bash
+   cd android
+   ./gradlew clean
+   cd ..
+   npm run android
+   ```
+
+3. **Notification System**
+   - Currently using simplified logging system
+   - Reminders are tracked and logged to console
+   - Can be extended with actual push notifications later
+
+4. **Biometric Authentication**
+   - Verify device has biometric authentication set up
+   - Check app permissions for biometric access
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## 📞 Support
+
+For support and questions, please open an issue in the repository.
+
+---
+
+**Neo Sentinel** - Making password updates a routine, not a risk. 🔐
