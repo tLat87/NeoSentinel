@@ -33,6 +33,12 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app does not access your photo library. This permission is required by third-party libraries but is not used by the app.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app does not access your camera. This permission is required by third-party libraries but is not used by the app.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app does not access your microphone. This permission is required by third-party libraries but is not used by the app.</string>
 	<key>RCTNewArchEnabled</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
