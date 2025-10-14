@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import BiometricService from '../services/BiometricService';
 import {COLORS, SPACING, BORDER_RADIUS, FONT_SIZES, FONT_WEIGHTS} from '../constants/colors';
 import GradientBorderButton from '../components/GradientBorderButton';
 
@@ -29,36 +28,12 @@ const VaultScreen: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [serviceName, setServiceName] = useState('');
   const [login, setLogin] = useState('');
-  const [biometricService] = useState(BiometricService.getInstance());
 
   useEffect(() => {
-    checkBiometricStatus();
+    // Упрощенная логика - сразу показываем vault без биометрии
+    setIsAuthenticated(true);
+    loadVaultEntries();
   }, []);
-
-  const checkBiometricStatus = async () => {
-    const isAvailable = await biometricService.isBiometricAvailable();
-    const isEnabled = await biometricService.isBiometricEnabled();
-    
-    if (isAvailable && isEnabled) {
-      authenticateUser();
-    } else if (isAvailable && !isEnabled) {
-      biometricService.showBiometricSetupAlert();
-    } else {
-      // Biometric not available, allow access without authentication
-      setIsAuthenticated(true);
-      loadVaultEntries();
-    }
-  };
-
-  const authenticateUser = async () => {
-    const success = await biometricService.authenticate('Authenticate to access your secure vault');
-    if (success) {
-      setIsAuthenticated(true);
-      loadVaultEntries();
-    } else {
-      Alert.alert('Authentication Failed', 'Please try again to access your vault.');
-    }
-  };
 
   const loadVaultEntries = async () => {
     try {
@@ -163,26 +138,6 @@ const VaultScreen: React.FC = () => {
     </View>
   );
 
-  const renderAuthenticationScreen = () => (
-    <View style={styles.authContainer}>
-      <View style={styles.authIcon}>
-        <Icon name="fingerprint" size={80} color={COLORS.primary} />
-      </View>
-      <Text style={styles.authTitle}>Secure Vault</Text>
-      <Text style={styles.authDescription}>
-        Your vault is protected by biometric authentication. Tap below to access your secure entries.
-      </Text>
-      <GradientBorderButton
-        title="Authenticate"
-        onPress={authenticateUser}
-        icon={<Icon name="fingerprint" size={24} color={COLORS.text} />}
-      />
-    </View>
-  );
-
-  if (!isAuthenticated) {
-    return renderAuthenticationScreen();
-  }
 
   return (
     <View style={styles.container}>
@@ -278,29 +233,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.background,
   },
-  authContainer: {
-    flex: 1,
-    backgroundColor: COLORS.background,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: SPACING.xl,
-  },
-  authIcon: {
-    marginBottom: SPACING.xl,
-  },
-  authTitle: {
-    fontSize: FONT_SIZES.xxxl,
-    fontWeight: FONT_WEIGHTS.bold,
-    color: COLORS.text,
-    marginBottom: SPACING.md,
-  },
-  authDescription: {
-    fontSize: FONT_SIZES.md,
-    color: COLORS.textSecondary,
-    textAlign: 'center',
-    lineHeight: 20,
-    marginBottom: SPACING.xl,
-  },
   header: {
     padding: SPACING.md,
     borderBottomWidth: 1,
@@ -308,7 +240,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: FONT_SIZES.xl,
-    fontWeight: FONT_WEIGHTS.bold,
+    fontWeight: 'bold' as const,
     color: COLORS.text,
   },
   headerSubtitle: {
@@ -352,7 +284,7 @@ const styles = StyleSheet.create({
   },
   serviceName: {
     fontSize: FONT_SIZES.lg,
-    fontWeight: FONT_WEIGHTS.bold,
+    fontWeight: 'bold' as const,
     color: COLORS.text,
     marginBottom: SPACING.xs,
   },
@@ -379,7 +311,7 @@ const styles = StyleSheet.create({
   },
   emptyStateTitle: {
     fontSize: FONT_SIZES.xl,
-    fontWeight: FONT_WEIGHTS.bold,
+    fontWeight: 'bold' as const,
     color: COLORS.text,
     marginTop: SPACING.lg,
     marginBottom: SPACING.sm,
@@ -425,7 +357,7 @@ const styles = StyleSheet.create({
   },
   modalTitle: {
     fontSize: FONT_SIZES.lg,
-    fontWeight: FONT_WEIGHTS.bold,
+    fontWeight: 'bold' as const,
     color: COLORS.text,
   },
   placeholder: {
@@ -440,7 +372,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: FONT_SIZES.md,
-    fontWeight: FONT_WEIGHTS.medium,
+    fontWeight: '500' as const,
     color: COLORS.text,
     marginBottom: SPACING.sm,
   },
