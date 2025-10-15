@@ -35,6 +35,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: SPACING.sm,
   },
+  logo: {
+    width: 140,
+    height: 40,
+    resizeMode: 'contain',
+  },
   brandingText: {
     fontSize: FONT_SIZES.xxl,
     fontWeight: FONT_WEIGHTS.bold,

@@ -9,7 +9,6 @@ import {
   Modal,
   TextInput,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {COLORS, SPACING, BORDER_RADIUS, FONT_SIZES, FONT_WEIGHTS} from '../constants/colors';
 import GradientBorderButton from '../components/GradientBorderButton';
@@ -104,7 +103,7 @@ const VaultScreen: React.FC = () => {
     <View style={styles.entryCard}>
       <View style={styles.entryHeader}>
         <View style={styles.serviceIcon}>
-          <Icon name="lock" size={24} color={COLORS.primary} />
+          <Text style={{fontSize: 24, color: COLORS.primary}}>🔒</Text>
         </View>
         <View style={styles.entryInfo}>
           <Text style={styles.serviceName}>{item.serviceName}</Text>
@@ -113,7 +112,7 @@ const VaultScreen: React.FC = () => {
         <TouchableOpacity
           onPress={() => handleDeleteEntry(item.id)}
           style={styles.deleteButton}>
-          <Icon name="delete" size={20} color={COLORS.error} />
+          <Text style={{fontSize: 20, color: COLORS.error}}>🗑️</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.entryFooter}>
@@ -126,7 +125,7 @@ const VaultScreen: React.FC = () => {
 
   const renderEmptyState = () => (
     <View style={styles.emptyState}>
-      <Icon name="lock-outline" size={80} color={COLORS.textTertiary} />
+      <Text style={{fontSize: 80, color: COLORS.textTertiary}}>🔐</Text>
       <Text style={styles.emptyStateTitle}>Your Vault is Empty</Text>
       <Text style={styles.emptyStateDescription}>
         Add your first service to start tracking your accounts securely
@@ -161,7 +160,7 @@ const VaultScreen: React.FC = () => {
         <TouchableOpacity
           style={styles.addButton}
           onPress={() => setIsModalVisible(true)}>
-          <Icon name="add" size={24} color={COLORS.background} />
+          <Text style={{fontSize: 24, color: COLORS.background}}>➕</Text>
         </TouchableOpacity>
       )}
 
@@ -175,7 +174,7 @@ const VaultScreen: React.FC = () => {
             <TouchableOpacity
               onPress={() => setIsModalVisible(false)}
               style={styles.closeButton}>
-              <Icon name="close" size={24} color={COLORS.text} />
+              <Text style={{fontSize: 24, color: COLORS.text}}>✕</Text>
             </TouchableOpacity>
             <Text style={styles.modalTitle}>Add Vault Entry</Text>
             <View style={styles.placeholder} />
@@ -208,7 +207,7 @@ const VaultScreen: React.FC = () => {
             </View>
 
             <View style={styles.warningBox}>
-              <Icon name="info" size={20} color={COLORS.warning} />
+              <Text style={{fontSize: 20, color: COLORS.warning}}>ℹ️</Text>
               <Text style={styles.warningText}>
                 Note: We only store the service name and login for tracking purposes. 
                 Your actual passwords are never stored in this app.

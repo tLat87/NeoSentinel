@@ -3,14 +3,13 @@ import {StatusBar, StyleSheet, useColorScheme, View, Image} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 // Import screens
 import OnboardingScreen from './src/screens/OnboardingScreen';
-import PasswordReminderScreen from './src/screens/PasswordReminderScreen';
-import SecurityTipsScreen from './src/screens/SecurityTipsScreen';
-import SavedTipsScreen from './src/screens/SavedTipsScreen';
-import PasswordGeneratorScreen from './src/screens/PasswordGeneratorScreen';
+import ThreatMonitoringScreen from './src/screens/ThreatMonitoringScreen';
+import VulnerabilityAnalysisScreen from './src/screens/VulnerabilityAnalysisScreen';
+import IncidentJournalScreen from './src/screens/IncidentJournalScreen';
+import DataEncryptionScreen from './src/screens/DataEncryptionScreen';
 import VaultScreen from './src/screens/VaultScreen';
 
 // Import constants
@@ -75,16 +74,16 @@ function App(): React.JSX.Element {
             let iconSource: any;
 
             switch (route.name) {
-              case 'Reminders':
+              case 'Threats':
                 iconSource = require('./src/assets/img/bottom/1.png');
                 break;
-              case 'Tips':
+              case 'Analysis':
                 iconSource = require('./src/assets/img/bottom/2.png');
                 break;
-              case 'Saved':
+              case 'Journal':
                 iconSource = require('./src/assets/img/bottom/3.png');
                 break;
-              case 'Generator':
+              case 'Encryption':
                 iconSource = require('./src/assets/img/bottom/4.png');
                 break;
               default:
@@ -124,23 +123,23 @@ function App(): React.JSX.Element {
           header: () => <CustomHeader />,
         })}>
         <Tab.Screen
-          name="Reminders"
-          component={PasswordReminderScreen}
+          name="Threats"
+          component={ThreatMonitoringScreen}
           options={{title: ''}}
         />
         <Tab.Screen
-          name="Tips"
-          component={SecurityTipsScreen}
+          name="Analysis"
+          component={VulnerabilityAnalysisScreen}
           options={{title: ''}}
         />
         <Tab.Screen
-          name="Saved"
-          component={SavedTipsScreen}
+          name="Journal"
+          component={IncidentJournalScreen}
           options={{title: ''}}
         />
         <Tab.Screen
-          name="Generator"
-          component={PasswordGeneratorScreen}
+          name="Encryption"
+          component={DataEncryptionScreen}
           options={{title: ''}}
         />
         {/* <Tab.Screen

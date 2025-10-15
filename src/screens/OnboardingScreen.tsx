@@ -27,32 +27,32 @@ interface OnboardingScreenProps {
 const onboardingSteps: OnboardingStep[] = [
   {
     id: '1',
-    title: 'Welcome to Neo Sentinel',
-    description: 'Your essential personal safety calendar and cybersecurity coach. Stop guessing when you last changed your passwords.',
+    title: 'Welcome to CyberGuardian',
+    description: 'Your advanced cybersecurity command center. Monitor threats, analyze vulnerabilities, and protect your digital assets with enterprise-grade security tools.',
     image: require('../assets/img/1.png'),
   },
   {
     id: '2',
-    title: 'Proactive Password Reminders',
-    description: 'Set rotation cycles for each account and receive timely alerts when passwords are due for updates.',
+    title: 'Real-Time Threat Monitoring',
+    description: 'Advanced threat detection system that continuously monitors your network and alerts you to potential security breaches and suspicious activities.',
     image: require('../assets/img/2.png'),
   },
   {
     id: '3',
-    title: 'Secure Password Generation',
-    description: 'Generate strong, unique passwords with iCloud Keychain integration directly within the app.',
+    title: 'Vulnerability Analysis Engine',
+    description: 'Comprehensive security scanning that identifies weaknesses in your systems and provides detailed remediation strategies.',
     image: require('../assets/img/3.png'),
   },
   {
     id: '4',
-    title: 'Cybersecurity Tips',
-    description: 'Access daily security tips to improve your cyber hygiene and stay protected.',
+    title: 'Security Incident Journal',
+    description: 'Track and manage security incidents with detailed logging, resolution tracking, and comprehensive incident reports.',
     image: require('../assets/img/4.png'),
   },
   {
     id: '5',
-    title: 'Your Secure Vault',
-    description: 'Protected by Face ID/Touch ID. We only track update schedules - your passwords stay with you.',
+    title: 'Advanced Data Encryption',
+    description: 'Military-grade encryption tools to protect your sensitive data with AES-256 encryption and secure key management.',
     image: require('../assets/img/5.png'),
   },
 ];

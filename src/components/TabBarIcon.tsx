@@ -1,6 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import {View, StyleSheet, Text} from 'react-native';
 import {COLORS} from '../constants/colors';
 
 interface TabBarIconProps {
@@ -10,20 +9,20 @@ interface TabBarIconProps {
 }
 
 const TabBarIcon: React.FC<TabBarIconProps> = ({name, focused, size}) => {
-  const getIconName = (routeName: string) => {
+  const getEmoji = (routeName: string) => {
     switch (routeName) {
-      case 'Reminders':
-        return 'notifications';
-      case 'Tips':
-        return 'security';
-      case 'Saved':
-        return 'favorite';
-      case 'Generator':
-        return 'lock';
+      case 'Threats':
+        return '🛡️';
+      case 'Analysis':
+        return '🔍';
+      case 'Journal':
+        return '📋';
+      case 'Encryption':
+        return '🔐';
       case 'Vault':
-        return 'vpn-key';
+        return '🗄️';
       default:
-        return 'notifications';
+        return '🛡️';
     }
   };
 
@@ -37,11 +36,7 @@ const TabBarIcon: React.FC<TabBarIconProps> = ({name, focused, size}) => {
           height: 50,
         },
       ]}>
-      <Icon
-        name={getIconName(name)}
-        size={24}
-        color={COLORS.text}
-      />
+      <Text style={{fontSize: 24}}>{getEmoji(name)}</Text>
     </View>
   );
 };

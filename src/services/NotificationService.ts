@@ -1,5 +1,5 @@
 import {Alert} from 'react-native';
-import {PasswordReminder} from '../types';
+import {ThreatAlert} from '../types';
 
 class NotificationService {
   private static instance: NotificationService;
@@ -21,37 +21,37 @@ class NotificationService {
     return true;
   }
 
-  public schedulePasswordReminder(reminder: PasswordReminder) {
-    // Log the reminder instead of scheduling actual notification
-    console.log(`📅 Password reminder scheduled for ${reminder.title} at ${reminder.nextReminder}`);
-    console.log(`⏰ Next reminder in ${reminder.intervalDays} days`);
+  public scheduleThreatAlert(threat: ThreatAlert) {
+    // Log the threat alert instead of scheduling actual notification
+    console.log(`🚨 Threat alert scheduled for ${threat.title} at ${threat.timestamp}`);
+    console.log(`⚠️ Severity: ${threat.severity}, Category: ${threat.category}`);
   }
 
-  public cancelPasswordReminder(reminderId: string) {
-    console.log(`❌ Cancelled notification for reminder ${reminderId}`);
+  public cancelThreatAlert(threatId: string) {
+    console.log(`❌ Cancelled notification for threat ${threatId}`);
   }
 
-  public updatePasswordReminder(reminder: PasswordReminder) {
+  public updateThreatAlert(threat: ThreatAlert) {
     // Cancel existing notification
-    this.cancelPasswordReminder(reminder.id);
+    this.cancelThreatAlert(threat.id);
     
     // Schedule new notification
-    this.schedulePasswordReminder(reminder);
+    this.scheduleThreatAlert(threat);
   }
 
-  public scheduleAllReminders(reminders: PasswordReminder[]) {
-    console.log('📋 Scheduling all password reminders:');
-    reminders.forEach(reminder => {
-      if (reminder.isActive) {
-        this.schedulePasswordReminder(reminder);
+  public scheduleAllThreats(threats: ThreatAlert[]) {
+    console.log('📋 Scheduling all threat alerts:');
+    threats.forEach(threat => {
+      if (!threat.isResolved) {
+        this.scheduleThreatAlert(threat);
       }
     });
   }
 
   public showTestNotification() {
     Alert.alert(
-      '🔐 Neo Sentinel',
-      'This is a test notification from Neo Sentinel',
+      '🛡️ CyberGuardian',
+      'This is a test notification from CyberGuardian',
       [{text: 'OK'}]
     );
   }

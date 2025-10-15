@@ -1,20 +1,47 @@
-export interface PasswordReminder {
+export interface ThreatAlert {
   id: string;
   title: string;
-  comment?: string;
-  intervalDays: number;
-  lastChanged: Date;
-  nextReminder: Date;
-  isActive: boolean;
+  description: string;
+  severity: 'low' | 'medium' | 'high' | 'critical';
+  category: string;
+  timestamp: Date;
+  isResolved: boolean;
+  source: string;
 }
 
-export interface SecurityTip {
+export interface VulnerabilityReport {
   id: string;
   title: string;
   description: string;
   category: string;
+  severity: 'low' | 'medium' | 'high' | 'critical';
+  cveId: string;
   isSaved: boolean;
   createdAt: Date;
+  remediation: string;
+  affectedSystems: string[];
+}
+
+export interface SecurityIncident {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  severity: 'low' | 'medium' | 'high' | 'critical';
+  status: 'open' | 'investigating' | 'resolved';
+  timestamp: Date;
+  resolution?: string;
+  affectedSystems: string[];
+  incidentType: string;
+}
+
+export interface EncryptionResult {
+  id: string;
+  originalText: string;
+  encryptedText: string;
+  key: string;
+  timestamp: Date;
+  operation: 'encrypt' | 'decrypt';
 }
 
 export interface OnboardingStep {
@@ -43,15 +70,15 @@ export interface GeneratedPassword {
 }
 
 export type TabParamList = {
-  Reminders: undefined;
-  Tips: undefined;
-  Saved: undefined;
-  Generator: undefined;
+  Threats: undefined;
+  Analysis: undefined;
+  Journal: undefined;
+  Encryption: undefined;
 };
 
 export type RootStackParamList = {
   Main: undefined;
   Onboarding: undefined;
-  AddReminder: {reminder?: PasswordReminder};
-  EditReminder: {reminder: PasswordReminder};
+  AddThreat: {threat?: ThreatAlert};
+  EditThreat: {threat: ThreatAlert};
 };
