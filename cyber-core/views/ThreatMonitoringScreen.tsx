@@ -10,9 +10,9 @@ import {
   Image,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {COLORS, SPACING, BORDER_RADIUS, FONT_SIZES, FONT_WEIGHTS} from '../constants/colors';
-import {ThreatAlert} from '../types';
-import GradientBorderButton from '../components/GradientBorderButton';
+import {COLORS, SPACING, BORDER_RADIUS, FONT_SIZES, FONT_WEIGHTS} from '../config/colors';
+import {ThreatAlert} from '../data-models';
+import GradientBorderButton from '../ui-elements/GradientBorderButton';
 
 const ThreatMonitoringScreen: React.FC = () => {
   const [threats, setThreats] = useState<ThreatAlert[]>([]);
@@ -218,7 +218,7 @@ const ThreatMonitoringScreen: React.FC = () => {
 
   const renderEmptyState = () => (
     <View style={styles.emptyState}>
-      <Image source={require('../assets/img/1.png')} style={{width: 180, height: 180}} />
+      <Image source={require('../media-resources/media-assets/1.png')} style={{width: 180, height: 180}} />
       <Text style={styles.emptyStateTitle}>No Threats Detected</Text>
       <Text style={styles.emptyStateDescription}>
         Your system is currently secure. Threat monitoring is active and will alert you to any security issues.

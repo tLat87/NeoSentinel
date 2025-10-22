@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
-import {COLORS, SPACING, FONT_SIZES, FONT_WEIGHTS} from '../constants/colors';
+import {COLORS, SPACING, FONT_SIZES, FONT_WEIGHTS} from '../config/colors';
 
 interface CustomHeaderProps {
   title?: string;
@@ -10,7 +10,7 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({title}) => {
   return (
     <View style={styles.headerContainer}>
       <View style={styles.brandingContainer}>
-        <Image source={require('../assets/img/Group7.png')} style={styles.logo} />
+        <Image source={require('../media-resources/media-assets/Group7.png')} style={styles.logo} />
       </View>
       
       <View style={styles.decorativeLine} />

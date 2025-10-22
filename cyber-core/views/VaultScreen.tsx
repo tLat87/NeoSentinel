@@ -10,8 +10,8 @@ import {
   TextInput,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {COLORS, SPACING, BORDER_RADIUS, FONT_SIZES, FONT_WEIGHTS} from '../constants/colors';
-import GradientBorderButton from '../components/GradientBorderButton';
+import {COLORS, SPACING, BORDER_RADIUS, FONT_SIZES, FONT_WEIGHTS} from '../config/colors';
+import GradientBorderButton from '../ui-elements/GradientBorderButton';
 
 interface VaultEntry {
   id: string;

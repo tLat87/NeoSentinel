@@ -4,18 +4,18 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// Import screens
-import OnboardingScreen from './src/screens/OnboardingScreen';
-import ThreatMonitoringScreen from './src/screens/ThreatMonitoringScreen';
-import VulnerabilityAnalysisScreen from './src/screens/VulnerabilityAnalysisScreen';
-import IncidentJournalScreen from './src/screens/IncidentJournalScreen';
-import DataEncryptionScreen from './src/screens/DataEncryptionScreen';
-import VaultScreen from './src/screens/VaultScreen';
+// Import views
+import OnboardingScreen from './cyber-core/views/OnboardingScreen';
+import ThreatMonitoringScreen from './cyber-core/views/ThreatMonitoringScreen';
+import VulnerabilityAnalysisScreen from './cyber-core/views/VulnerabilityAnalysisScreen';
+import IncidentJournalScreen from './cyber-core/views/IncidentJournalScreen';
+import DataEncryptionScreen from './cyber-core/views/DataEncryptionScreen';
+import VaultScreen from './cyber-core/views/VaultScreen';
 
-// Import constants
-import {COLORS} from './src/constants/colors';
-import CustomHeader from './src/components/CustomHeader';
-import Loader from './src/components/Loader';
+// Import config
+import {COLORS} from './cyber-core/config/colors';
+import CustomHeader from './cyber-core/ui-elements/CustomHeader';
+import Loader from './cyber-core/ui-elements/Loader';
 
 const Tab = createBottomTabNavigator();
 
@@ -75,19 +75,19 @@ function App(): React.JSX.Element {
 
             switch (route.name) {
               case 'Threats':
-                iconSource = require('./src/assets/img/bottom/1.png');
+                iconSource = require('./cyber-core/media-resources/media-assets/bottom/1.png');
                 break;
               case 'Analysis':
-                iconSource = require('./src/assets/img/bottom/2.png');
+                iconSource = require('./cyber-core/media-resources/media-assets/bottom/2.png');
                 break;
               case 'Journal':
-                iconSource = require('./src/assets/img/bottom/3.png');
+                iconSource = require('./cyber-core/media-resources/media-assets/bottom/3.png');
                 break;
               case 'Encryption':
-                iconSource = require('./src/assets/img/bottom/4.png');
+                iconSource = require('./cyber-core/media-resources/media-assets/bottom/4.png');
                 break;
               default:
-                iconSource = require('./src/assets/img/bottom/1.png');
+                iconSource = require('./cyber-core/media-resources/media-assets/bottom/1.png');
             }
 
             return (

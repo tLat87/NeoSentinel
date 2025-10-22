@@ -12,9 +12,9 @@ import {
   ScrollView,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {COLORS, SPACING, BORDER_RADIUS, FONT_SIZES, FONT_WEIGHTS} from '../constants/colors';
-import {EncryptionResult} from '../types';
-import GradientBorderButton from '../components/GradientBorderButton';
+import {COLORS, SPACING, BORDER_RADIUS, FONT_SIZES, FONT_WEIGHTS} from '../config/colors';
+import {EncryptionResult} from '../data-models';
+import GradientBorderButton from '../ui-elements/GradientBorderButton';
 
 const DataEncryptionScreen: React.FC = () => {
   const [inputText, setInputText] = useState<string>('');
@@ -233,7 +233,7 @@ const DataEncryptionScreen: React.FC = () => {
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
         <View style={styles.mainContainer}>
           <View style={styles.iconContainer}>
-            <Image source={require('../assets/img/6.png')} style={{width: 260, height: 160}} />
+            <Image source={require('../media-resources/media-assets/6.png')} style={{width: 260, height: 160}} />
           </View>
           
           <Text style={styles.title}>CyberGuardian Data Encryption</Text>
@@ -294,7 +294,7 @@ const DataEncryptionScreen: React.FC = () => {
                   <TouchableOpacity
                     style={styles.copyButton}
                     onPress={() => copyToClipboard(encryptedText)}>
-                    <Image source={require('../assets/img/solar_copy-bold-duotone.png')} style={{width: 20, height: 20}} />
+                    <Image source={require('../media-resources/media-assets/solar_copy-bold-duotone.png')} style={{width: 20, height: 20}} />
                   </TouchableOpacity>
                 </Animated.View>
               </View>

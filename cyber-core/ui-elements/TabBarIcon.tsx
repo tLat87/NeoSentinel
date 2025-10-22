@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
-import {COLORS} from '../constants/colors';
+import {COLORS} from '../config/colors';
 
 interface TabBarIconProps {
   name: string;

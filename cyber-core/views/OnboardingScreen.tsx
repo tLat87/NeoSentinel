@@ -8,8 +8,8 @@ import {
   FlatList,
   Image,
 } from 'react-native';
-import {COLORS, SPACING, BORDER_RADIUS, FONT_SIZES, FONT_WEIGHTS} from '../constants/colors';
-import GradientBorderButton from '../components/GradientBorderButton';
+import {COLORS, SPACING, BORDER_RADIUS, FONT_SIZES, FONT_WEIGHTS} from '../config/colors';
+import GradientBorderButton from '../ui-elements/GradientBorderButton';
 
 const {width, height} = Dimensions.get('window');
 
@@ -29,31 +29,31 @@ const onboardingSteps: OnboardingStep[] = [
     id: '1',
     title: 'Welcome to CyberGuardian',
     description: 'Your advanced cybersecurity command center. Monitor threats, analyze vulnerabilities, and protect your digital assets with enterprise-grade security tools.',
-    image: require('../assets/img/1.png'),
+    image: require('../media-resources/media-assets/1.png'),
   },
   {
     id: '2',
     title: 'Real-Time Threat Monitoring',
     description: 'Advanced threat detection system that continuously monitors your network and alerts you to potential security breaches and suspicious activities.',
-    image: require('../assets/img/2.png'),
+    image: require('../media-resources/media-assets/2.png'),
   },
   {
     id: '3',
     title: 'Vulnerability Analysis Engine',
     description: 'Comprehensive security scanning that identifies weaknesses in your systems and provides detailed remediation strategies.',
-    image: require('../assets/img/3.png'),
+    image: require('../media-resources/media-assets/3.png'),
   },
   {
     id: '4',
     title: 'Security Incident Journal',
     description: 'Track and manage security incidents with detailed logging, resolution tracking, and comprehensive incident reports.',
-    image: require('../assets/img/4.png'),
+    image: require('../media-resources/media-assets/4.png'),
   },
   {
     id: '5',
     title: 'Advanced Data Encryption',
     description: 'Military-grade encryption tools to protect your sensitive data with AES-256 encryption and secure key management.',
-    image: require('../assets/img/5.png'),
+    image: require('../media-resources/media-assets/5.png'),
   },
 ];
 
@@ -83,7 +83,7 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({onComplete}) => {
   const renderStep = ({item}: {item: OnboardingStep}) => (
     <View style={styles.stepContainer}>
       <View style={styles.imageContainer}>
-        <Image source={require('../assets/img/c2a94c3873fe3abc9b5984103658d00c0eeb294d.png')} style={{position: 'absolute',  bottom: 10, width: 420, height: 320}} />
+        <Image source={require('../media-resources/media-assets/c2a94c3873fe3abc9b5984103658d00c0eeb294d.png')} style={{position: 'absolute',  bottom: 10, width: 420, height: 320}} />
         <Image source={item.image} style={styles.image} />
       </View>
       <Text style={styles.title}>{item.title}</Text>

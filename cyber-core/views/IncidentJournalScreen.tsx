@@ -11,9 +11,9 @@ import {
   Image,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {COLORS, SPACING, BORDER_RADIUS, FONT_SIZES, FONT_WEIGHTS} from '../constants/colors';
-import {SecurityIncident} from '../types';
-import GradientBorderButton from '../components/GradientBorderButton';
+import {COLORS, SPACING, BORDER_RADIUS, FONT_SIZES, FONT_WEIGHTS} from '../config/colors';
+import {SecurityIncident} from '../data-models';
+import GradientBorderButton from '../ui-elements/GradientBorderButton';
 
 const IncidentJournalScreen: React.FC = () => {
   const [incidents, setIncidents] = useState<SecurityIncident[]>([]);
@@ -231,7 +231,7 @@ const IncidentJournalScreen: React.FC = () => {
           <GradientBorderButton
             title="Share Report"
             onPress={() => handleShareIncident(item)}
-            icon={<Image source={require('../assets/img/ion_share.png')} style={{width: 20, height: 20}} />}
+            icon={<Image source={require('../media-resources/media-assets/ion_share.png')} style={{width: 20, height: 20}} />}
             style={styles.shareButtonContainer}
           />
         </View>
@@ -241,7 +241,7 @@ const IncidentJournalScreen: React.FC = () => {
 
   const renderEmptyState = () => (
     <View style={styles.emptyState}>
-      <Image source={require('../assets/img/4.png')} style={{width: 280, height: 180}} />
+      <Image source={require('../media-resources/media-assets/4.png')} style={{width: 280, height: 180}} />
       <Text style={styles.emptyStateTitle}>No Security Incidents Recorded</Text>
       <Text style={styles.emptyStateDescription}>
         Your security systems are working well. Incident reports will appear here when security events occur.

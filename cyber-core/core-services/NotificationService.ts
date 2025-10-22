@@ -1,5 +1,5 @@
 import {Alert} from 'react-native';
-import {ThreatAlert} from '../types';
+import {ThreatAlert} from '../data-models';
 
 class NotificationService {
   private static instance: NotificationService;

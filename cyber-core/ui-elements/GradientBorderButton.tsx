@@ -9,7 +9,7 @@ import {
   Image
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {COLORS, BORDER_RADIUS, FONT_SIZES, FONT_WEIGHTS} from '../constants/colors';
+import {COLORS, BORDER_RADIUS, FONT_SIZES, FONT_WEIGHTS} from '../config/colors';
 
 interface GradientBorderButtonProps {
   title: string;
@@ -42,8 +42,11 @@ const GradientBorderButton: React.FC<GradientBorderButtonProps> = ({
           ]}
           onPress={onPress}
           disabled={disabled}>
-          {icon &&          <Image source={require('../assets/img/ion_share.png')} style={{width: 20, height: 20}} />
-        }
+          {icon && (
+            <View style={styles.iconContainer}>
+              {icon}
+            </View>
+          )}
           <Text style={[styles.buttonText, textStyle]}>{title}</Text>
         </TouchableOpacity>
       </LinearGradient>

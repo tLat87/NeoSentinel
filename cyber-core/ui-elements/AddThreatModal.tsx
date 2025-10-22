@@ -10,8 +10,8 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import {COLORS, SPACING, BORDER_RADIUS, FONT_SIZES, FONT_WEIGHTS} from '../constants/colors';
-import {ThreatAlert} from '../types';
+import {COLORS, SPACING, BORDER_RADIUS, FONT_SIZES, FONT_WEIGHTS} from '../config/colors';
+import {ThreatAlert} from '../data-models';
 import GradientBorderButton from './GradientBorderButton';
 
 interface AddThreatModalProps {

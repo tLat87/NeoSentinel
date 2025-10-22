@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Animated, StyleSheet } from 'react-native';
-import {COLORS} from '../constants/colors';
+import {COLORS} from '../config/colors';
 
 const Loader: React.FC = () => {
   const translateX = useRef(new Animated.Value(0)).current;
